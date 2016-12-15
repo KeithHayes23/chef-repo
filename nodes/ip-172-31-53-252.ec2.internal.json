@@ -241,7 +241,6 @@
           },
           "state": "up",
           "arp": {
-            "169.254.169.254": "12:19:ba:41:ba:e9",
             "172.31.48.1": "12:19:ba:41:ba:e9"
           },
           "routes": [
@@ -282,16 +281,16 @@
           "lo": {
             "tx": {
               "queuelen": "1",
-              "bytes": "140",
-              "packets": "2",
+              "bytes": "4867",
+              "packets": "16",
               "errors": "0",
               "drop": "0",
               "carrier": "0",
               "collisions": "0"
             },
             "rx": {
-              "bytes": "140",
-              "packets": "2",
+              "bytes": "4867",
+              "packets": "16",
               "errors": "0",
               "drop": "0",
               "overrun": "0"
@@ -300,16 +299,16 @@
           "eth0": {
             "tx": {
               "queuelen": "1000",
-              "bytes": "5117082",
-              "packets": "65642",
+              "bytes": "5779752",
+              "packets": "70064",
               "errors": "0",
               "drop": "0",
               "carrier": "0",
               "collisions": "0"
             },
             "rx": {
-              "bytes": "250975184",
-              "packets": "186035",
+              "bytes": "251529417",
+              "packets": "192765",
               "errors": "0",
               "drop": "0",
               "overrun": "0"
@@ -320,7 +319,7 @@
     },
     "ipaddress": "172.31.53.252",
     "macaddress": "12:8C:38:6D:D7:5C",
-    "ohai_time": 1481835235.3923295,
+    "ohai_time": 1481836812.0477664,
     "cpu": {
       "0": {
         "vendor_id": "GenuineIntel",
@@ -407,23 +406,23 @@
         "free": "0kB"
       },
       "total": "1019328kB",
-      "free": "97080kB",
-      "buffers": "75612kB",
-      "cached": "498744kB",
-      "active": "376036kB",
-      "inactive": "314568kB",
-      "dirty": "1484kB",
+      "free": "129860kB",
+      "buffers": "76484kB",
+      "cached": "458628kB",
+      "active": "375432kB",
+      "inactive": "275600kB",
+      "dirty": "20kB",
       "writeback": "0kB",
-      "anon_pages": "116288kB",
-      "mapped": "18452kB",
-      "slab": "218448kB",
-      "slab_reclaimable": "206536kB",
-      "slab_unreclaim": "11912kB",
-      "page_tables": "3596kB",
+      "anon_pages": "115924kB",
+      "mapped": "18440kB",
+      "slab": "225340kB",
+      "slab_reclaimable": "213404kB",
+      "slab_unreclaim": "11936kB",
+      "page_tables": "3540kB",
       "nfs_unstable": "0kB",
       "bounce": "0kB",
       "commit_limit": "509664kB",
-      "committed_as": "223864kB",
+      "committed_as": "223544kB",
       "vmalloc_total": "34359738367kB",
       "vmalloc_used": "0kB",
       "vmalloc_chunk": "0kB"
@@ -482,13 +481,13 @@
       },
       "/dev/xvda1": {
         "kb_size": "8123812",
-        "kb_used": "1853760",
-        "kb_available": "6169804",
+        "kb_used": "1853912",
+        "kb_available": "6169652",
         "percent_used": "24%",
         "mount": "/",
         "total_inodes": "524288",
-        "inodes_used": "98411",
-        "inodes_available": "425877",
+        "inodes_used": "98439",
+        "inodes_available": "425849",
         "inodes_percent_used": "19%",
         "fs_type": "ext4",
         "mount_options": [
@@ -1044,12 +1043,12 @@
         },
         "/dev/xvda1": {
           "kb_size": "8123812",
-          "kb_used": "1853760",
-          "kb_available": "6169804",
+          "kb_used": "1853912",
+          "kb_available": "6169652",
           "percent_used": "24%",
           "total_inodes": "524288",
-          "inodes_used": "98411",
-          "inodes_available": "425877",
+          "inodes_used": "98439",
+          "inodes_available": "425849",
           "inodes_percent_used": "19%",
           "fs_type": "ext4",
           "mount_options": [
@@ -1152,12 +1151,12 @@
         },
         "/": {
           "kb_size": "8123812",
-          "kb_used": "1853760",
-          "kb_available": "6169804",
+          "kb_used": "1853912",
+          "kb_available": "6169652",
           "percent_used": "24%",
           "total_inodes": "524288",
-          "inodes_used": "98411",
-          "inodes_available": "425877",
+          "inodes_used": "98439",
+          "inodes_available": "425849",
           "inodes_percent_used": "19%",
           "fs_type": "ext4",
           "mount_options": [
@@ -1256,13 +1255,13 @@
         "/dev/xvda1,/": {
           "device": "/dev/xvda1",
           "kb_size": "8123812",
-          "kb_used": "1853760",
-          "kb_available": "6169804",
+          "kb_used": "1853912",
+          "kb_available": "6169652",
           "percent_used": "24%",
           "mount": "/",
           "total_inodes": "524288",
-          "inodes_used": "98411",
-          "inodes_available": "425877",
+          "inodes_used": "98439",
+          "inodes_available": "425849",
           "inodes_percent_used": "19%",
           "fs_type": "ext4",
           "mount_options": [
@@ -4165,10 +4164,10 @@
       }
     },
     "init_package": "init",
-    "uptime_seconds": 6022,
-    "uptime": "1 hours 40 minutes 22 seconds",
-    "idletime_seconds": 5921,
-    "idletime": "1 hours 38 minutes 41 seconds",
+    "uptime_seconds": 7599,
+    "uptime": "2 hours 06 minutes 39 seconds",
+    "idletime_seconds": 7486,
+    "idletime": "2 hours 04 minutes 46 seconds",
     "cloud_v2": {
       "public_ipv4_addrs": [
         "54.234.242.70"
@@ -4207,22 +4206,22 @@
     },
     "root_group": "root",
     "recipes": [
-      "webserver",
-      "webserver::default"
+      "nginx",
+      "nginx::default"
     ],
     "expanded_run_list": [
-      "webserver::default"
+      "nginx::default"
     ],
     "roles": [
 
     ],
     "cookbooks": {
-      "webserver": {
+      "nginx": {
         "version": "0.1.0"
       }
     }
   },
   "run_list": [
-    "recipe[webserver]"
+    "recipe[nginx]"
   ]
 }
