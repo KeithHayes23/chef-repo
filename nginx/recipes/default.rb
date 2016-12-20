@@ -4,11 +4,13 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 package 'nginx'
-service 'nginx' do
-  action [:enable, :start]
-end
 
 template '/etc/nginx/nginx.conf' do
   source 'nginx.conf.erb'
   notifies :reload, "service[nginx]", :delayed
 end
+
+service 'nginx' do
+  action [:enable, :start]
+end
+
