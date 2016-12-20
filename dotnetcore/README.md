@@ -5,7 +5,12 @@ A Chef cookbook for managing .NET Core (http://dotnet.github.io/) installation a
 
 ## Supported Platforms
 
-- Ubuntu 14.04 (trusty)
+- Ubuntu 16.04
+- Ubuntu 14.04
+- Centos 7.1
+- Oracle 7.1
+- Redhat 7.1
+- Amazon
 - Windows Server 2012 R2
 
 ## Attributes
@@ -36,15 +41,15 @@ A Chef cookbook for managing .NET Core (http://dotnet.github.io/) installation a
     <td><tt>See <a href="attributes/default.rb" target="_blank">default.rb</a></tt></td>
   </tr>
   <tr>
-    <td><tt>['dotnetcore']['apt_package_source']</tt></td>
+    <td><tt>['dotnetcore']['package']['tar']</tt></td>
     <td>String</td>
-    <td>The apt-get package source repository server</td>
+    <td>An absolute URL for the RHEL family tar file</td>
     <td><tt>See <a href="attributes/default.rb" target="_blank">default.rb</a></tt></td>
   </tr>
   <tr>
-    <td><tt>['dotnetcore']['apt_package_source_key']</tt></td>
+    <td><tt>['dotnetcore']['apt_package_source']</tt></td>
     <td>String</td>
-    <td>The source URL for the apt keyserver gpg key.</td>
+    <td>The apt-get package source repository server</td>
     <td><tt>See <a href="attributes/default.rb" target="_blank">default.rb</a></tt></td>
   </tr>
 </table>
