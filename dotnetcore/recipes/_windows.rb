@@ -7,15 +7,20 @@
 # All rights reserved - Do Not Redistribute
 #
 
-packages = {
-  'vcredist2015' => 'https://download.microsoft.com/download/9/3/F/93FCF1E7-E6A4-478B-96E7-D4B285925B00/vc_redist.x64.exe',
-  'dotnetcore' => node['dotnetcore']['package']['source_url']
-}
+# require 'chef/win32/version'
 
-packages.each do |k,v|
-  windows_package k do
-    source v
+windows_package 'dotnet' do
+    source node['dotnetcore']['package']['source_url']
     installer_type :custom
-    options '/s /v"/qn"'
-  end
+    options '/s /v" /qn"'
 end
+
+# windows_version = Chef::ReservedNames::Win32::Version.new
+
+# if (windows_version.windows_7? 
+#     || windows_version.windows_server_2008_r2?
+#     || windows_version.windows_server_2008?
+#     || windows_version.windows_server_2012?
+#     || windows_version.windows_server_2012_r2?) then   
+
+# end

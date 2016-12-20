@@ -7,15 +7,11 @@
 # All rights reserved - Do Not Redistribute
 #
 
-log "Platform is #{node['platform_family']}"
-
-case node['platform_family']
+case node['platform']
 when 'windows'
     include_recipe 'dotnetcore::_windows'
-when 'debian'
+when 'debian', 'ubuntu'
     include_recipe 'dotnetcore::_ubuntu'
-when 'rhel'
-    include_recipe 'dotnetcore::_tar_install'
 else
-    fail 'This cookbook currently only supports Debian/Ubuntu, CentOS/Amazon/Oracle/RHEL, and Windows.'
+    fail 'This cookbook currently only supports Debian/Ubuntu and Windows.'
 end
