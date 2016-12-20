@@ -1,10 +1,28 @@
 #
-# Cookbook Name:: dotnetcore
+# Cookbook Name:: dotnetcoreapp
 # Recipe:: default
 #
-# Copyright (C) 2016 Andrew Cornies
-#
-# All rights reserved - Do Not Redistribute
-#
+# Copyright (c) 2016 The Authors, All Rights Reserved.
+include_recipe 'aws'
+include_recipe 'zip'
 
-include_recipe 'dotnetcore::_platform'
+directory "/var/aspdotnetcoreapps/" do
+  mode 0755
+  owner 'root'
+  group 'root'
+  action :create
+end
+
+aws_s3_file "/tmp/DotNetCoreLinux.zip" do
+  bucket "hayesbucket"
+  remote_path "DotNetCoreLinux.zip"
+end
+
+execute 'extract_stuff' do
+	command 'unzip /tmp/DotNetCoreLinux.zip -d /var/aspdotnetcoreapps/'
+	only_if { File.exist?("/var/aspdotnetcoreapps/DotNetCorelinux") }
+end
+
+execute 'cleanup_stuff' do
+	command 'rm /tmp/DotNetCoreLinux.zip'
+end
