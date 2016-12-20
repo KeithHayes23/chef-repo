@@ -25,3 +25,15 @@ end
 execute 'cleanup_stuff' do
 	command 'rm /tmp/DotNetCoreLinux.zip'
 end
+
+template '/etc/init.d/dotnetcoreapp' do
+  source 'dotnetcoreapp.erb'
+  owner 'root'
+  group 'root'
+  mode '0755'
+end
+
+service 'dotnetcoreapp' do
+  action [:enable, :start]
+end
+
