@@ -34,6 +34,6 @@ template '/etc/init.d/dotnetcoreapp' do
 end
 
 service 'dotnetcoreapp' do
-  action [:enable, :start]
+  action [:enable, :restart]
 end
 
