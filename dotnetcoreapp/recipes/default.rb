@@ -13,6 +13,11 @@ directory "/var/aspdotnetcoreapps/" do
   action :create
 end
 
+directory "/var/aspdotnetcoreapps/DotNetCoreLinux" do
+  recursive true
+  action :delete
+end
+
 aws_s3_file "/tmp/DotNetCoreLinux.zip" do
   bucket "hayesbucket"
   remote_path "DotNetCoreLinux.zip"
