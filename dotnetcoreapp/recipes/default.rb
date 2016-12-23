@@ -6,6 +6,15 @@
 include_recipe 'aws'
 include_recipe 'zip'
 
+# grab custom json
+require 'json'
+json = `opsworks-agent-cli get_json`
+node = JSON.parse(json, symbolize_names: true)
+S3Bucket = node[:S3Bucket]
+S3BucketObject = node[:S3BucketObject]
+AppName = File.basename(S3BucketObject, ".*")
+log "S3Bucket: #{S3Bucket} S3BucketObject: #{S3BucketObject} AppName: #{AppName}"
+
 directory "/var/aspdotnetcoreapps/" do
   mode 0755
   owner 'root'
@@ -13,22 +22,22 @@ directory "/var/aspdotnetcoreapps/" do
   action :create
 end
 
-directory "/var/aspdotnetcoreapps/DotNetCoreLinux" do
+directory "/var/aspdotnetcoreapps/#{AppName}" do
   recursive true
   action :delete
 end
 
-aws_s3_file "/tmp/DotNetCoreLinux.zip" do
-  bucket "hayesbucket"
-  remote_path "DotNetCoreLinux.zip"
+aws_s3_file "/tmp/#{S3BucketObject}" do
+  bucket S3Bucket
+  remote_path S3BucketObject
 end
 
 execute 'extract_stuff' do
-	command 'unzip /tmp/DotNetCoreLinux.zip -d /var/aspdotnetcoreapps/'
+	command "unzip /tmp/#{S3BucketObject} -d /var/aspdotnetcoreapps/"
 end
 
 execute 'cleanup_stuff' do
-	command 'rm /tmp/DotNetCoreLinux.zip'
+	command "rm /tmp/#{S3BucketObject}"
 end
 
 template '/etc/init.d/dotnetcoreapp' do
@@ -38,7 +47,7 @@ template '/etc/init.d/dotnetcoreapp' do
   mode '0755'
 end
 
-template '/var/aspdotnetcoreapps/DotNetCoreLinux/wwwroot/index.html' do
+template "/var/aspdotnetcoreapps/#{AppName}/wwwroot/index.html" do
   source 'index.html.erb'
   owner 'root'
   group 'root'
