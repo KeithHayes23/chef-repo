@@ -14,15 +14,16 @@ S3Bucket = node[:S3Bucket]
 S3BucketObject = node[:S3BucketObject]
 AppName = File.basename(S3BucketObject, ".*")
 log "S3Bucket: #{S3Bucket} S3BucketObject: #{S3BucketObject} AppName: #{AppName}"
+BASE_PATH = "/var/aspdotnetcoreapps/"
 
-directory "/var/aspdotnetcoreapps/" do
+directory BASE_PATH do
   mode 0755
   owner 'root'
   group 'root'
   action :create
 end
 
-directory "/var/aspdotnetcoreapps/#{AppName}" do
+directory "#{BASE_PATH}#{AppName}" do
   recursive true
   action :delete
 end
@@ -33,7 +34,7 @@ aws_s3_file "/tmp/#{S3BucketObject}" do
 end
 
 execute 'extract_stuff' do
-	command "unzip /tmp/#{S3BucketObject} -d /var/aspdotnetcoreapps/"
+	command "unzip /tmp/#{S3BucketObject} -d #{BASE_PATH}"
 end
 
 execute 'cleanup_stuff' do
@@ -42,6 +43,10 @@ end
 
 template '/etc/init.d/dotnetcoreapp' do
   source 'dotnetcoreapp.erb'
+  variables ({
+    :DAEMON_PATH => "#{BASE_PATH}#{AppName}",
+    :AppName => "#{AppName}.dll"
+  })
   owner 'root'
   group 'root'
   mode '0755'

@@ -11,10 +11,10 @@
 # Check that networking is up.
 [ "$NETWORKING" = "no" ] && exit 0
 
-DAEMON_PATH="/var/aspdotnetcoreapps/DotNetCoreLinux"
+DAEMON_PATH=<%= @DAEMON_PATH %>
 
 DAEMON=dotnet
-DNCAPP="DotNetCoreLinux.dll"
+DNCAPP=<%= @AppName %>
 
 NAME=dotnetcoreapp
 DESC="Runs DotNetCoreApp"
