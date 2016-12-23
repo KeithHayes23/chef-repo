@@ -1,6 +1,6 @@
 name 'dotnetcoreapp'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
+maintainer 'Keith Hayes'
+maintainer_email 'keith.hayes@catapultsystems.com'
 license 'Apache 2.0'
 description 'Installs/Configures dotnetcoreapp'
 long_description 'Installs/Configures dotnetcoreapp'

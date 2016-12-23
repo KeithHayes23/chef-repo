@@ -2,7 +2,7 @@
 # Cookbook Name:: dotnetcoreapp
 # Recipe:: default
 #
-# Copyright (c) 2016 The Authors, All Rights Reserved.
+# Copyright (c) 2016 Keith Hayes, All Rights Reserved.
 include_recipe 'aws'
 include_recipe 'zip'
 
